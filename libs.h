@@ -1,5 +1,11 @@
 #include <unistd.h>
 
+void gen_matrix(int *ptr);
+int arg_val();
+int check_val(int *ptr);
+void put_char(char c);
+void put_int(int n);
+
 // Generate matrix from arguments
 void gen_matrix(int *ptr)
 {
@@ -18,13 +24,17 @@ int check_val(int *ptr)
     //todo
 }
 
+// Write char to STDOUT_FILENO
 void put_char(char c)
 {
     write(1, &c, 1);
 }
 
+// Write int below 9 to STDOUT_FILENO
 void put_int(int n)
 {
+    if (n > 9)
+        return;
     const char *digits = "0123456789";
     char b;
     b = digits[n];
