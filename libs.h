@@ -5,6 +5,7 @@ int arg_val();
 int check_val(int *ptr);
 void put_char(char c);
 void put_int(int n);
+void print_matrix_row(int *ptr[]);
 
 // Generate matrix from arguments
 void gen_matrix(int *ptr)
@@ -39,4 +40,27 @@ void put_int(int n)
     char b;
     b = digits[n];
     put_char(b);
+}
+
+void print_matrix_row(int *ptr[])
+{
+    int iterator;
+
+    iterator = 0;
+    while (iterator <= 4)
+    {
+        put_int(*ptr[iterator]);
+        ++iterator;
+    }
+}
+
+void put_rows(int *row0[], int *row1[], int *row2[], int *row3[])
+{
+    print_matrix_row(*row0[]);
+    put_char('\n');
+    print_matrix_row(*row1[]);
+    put_char('\n');
+    print_matrix_row(*row2[]);
+    put_char('\n');
+    print_matrix_row(*row3[]);
 }
